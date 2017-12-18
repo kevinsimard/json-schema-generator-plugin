@@ -53,7 +53,8 @@ public class GenerateMojo extends AbstractMojo {
             File file = files.next();
             JsonNode schema = getJsonSchema(file);
 
-            if (schema.get("type").asText().equals("object")) {
+            if (schema.has("type") &&
+                    schema.get("type").asText().equals("object")) {
                 generateValidator(file, schema);
             }
         }
