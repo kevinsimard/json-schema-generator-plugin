@@ -24,6 +24,6 @@
 
 ## Usage
 
-Use $ mvn install to install the JAR locally.
+Use `$ mvn install` to install the JAR locally.
 
 See [schema-validator-example](https://github.com/kevinsimard/schema-validator-example) project for a real implementation.
