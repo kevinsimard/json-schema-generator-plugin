@@ -72,7 +72,7 @@ public class GenerateMojo extends AbstractMojo {
         ST template = getStringTemplate("templates/abstract.st");
         template.add("package", targetPackage);
 
-        String path = targetDirectory + "/" + "AbstractValidator.java";
+        String path = String.format("%s/AbstractValidator.java", targetDirectory);
 
         try {
             FileUtils.writeStringToFile(new File(path), template.render(), CHARSET);
@@ -85,12 +85,11 @@ public class GenerateMojo extends AbstractMojo {
         ST template = getStringTemplate("templates/validator.st");
         template.add("package", targetPackage);
         template.add("directory", schema.get("directory").asText());
-        template.add("className", schema.get("name").asText() + "Validator");
+        template.add("className", String.format("%sValidator", schema.get("name").asText()));
         template.add("schemaPath", file.getAbsolutePath().replace(sourceDirectory, ""));
 
-        String path = targetDirectory + "/" +
-            schema.get("directory").asText() + "/" +
-            schema.get("name").asText() + "Validator.java";
+        String path = String.format("%s/%s/%sValidator.java", targetDirectory,
+            schema.get("directory").asText(), schema.get("name").asText());
 
         try {
             FileUtils.writeStringToFile(new File(path), template.render(), CHARSET);
