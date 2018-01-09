@@ -28,3 +28,7 @@
 Use `$ mvn install` to install the JAR locally.
 
 See [schema-validator-example](https://github.com/kevinsimard/schema-validator-example) project for a real implementation.
+
+## License
+
+This package is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
